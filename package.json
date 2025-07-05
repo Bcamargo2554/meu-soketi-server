@@ -1,0 +1,14 @@
+{
+  "name": "soketi-server",
+  "version": "1.0.0",
+  "description": "Soketi on Render",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@soketi/soketi": "latest"
+  },
+  "author": "",
+  "license": "ISC"
+}
