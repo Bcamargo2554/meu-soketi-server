@@ -1,7 +1,8 @@
-const Soketi = require('@soketi/soketi');
+const soketi = require('@soketi/soketi');
 
-// A forma correta de iniciar é usando "new Soketi(...)"
-const instance = new Soketi({
+// A forma correta é chamar o pacote importado diretamente como uma função.
+// Ele retorna uma 'Promise' que, quando resolvida, significa que o servidor está no ar.
+soketi({
     port: process.env.PORT || 6001,
     apps: [
         {
@@ -10,10 +11,9 @@ const instance = new Soketi({
             secret: process.env.SOKETI_APP_SECRET,
         },
     ],
+}).then(server => {
+    // Opcional: Apenas para logar que o servidor foi iniciado com sucesso.
+    // O importante é que a função `soketi()` mantém o processo vivo.
+    console.log('Soketi server instance has been started successfully!');
+    console.log('Listening for connections...');
 });
-
-// Inicia o servidor e loga o sucesso
-instance.start().then(() => {
-    console.log('Soketi server started successfully on Render!');
-});
-
