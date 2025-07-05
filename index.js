@@ -1,8 +1,12 @@
-qconst soketi = require('@soketi/soketi');
+const soketi = require('@soketi/soketi');
 
+// Configura e inicia o servidor Soketi
 const instance = soketi.server({
+    // Render fornecerá a porta através de uma variável de ambiente
     port: process.env.PORT || 6001,
-    appManager.array.apps: [
+
+    // Define o nosso aplicativo, usando as variáveis de ambiente que configuraremos no Render
+    apps: [
         {
             id: process.env.SOKETI_APP_ID,
             key: process.env.SOKETI_APP_KEY,
@@ -11,4 +15,7 @@ const instance = soketi.server({
     ],
 });
 
-instance.start();
+// Inicia o servidor
+instance.start().then(() => {
+    console.log('Soketi server started successfully on Render!');
+});
