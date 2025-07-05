@@ -4,7 +4,7 @@
   "description": "Soketi server for Teleman project on Render",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "soketi start"
   },
   "dependencies": {
     "@soketi/soketi": "latest"
